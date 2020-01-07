@@ -1475,7 +1475,7 @@ setup(name='horovod',
       # which is undesirable.  Luckily, `install` action will install cffi before executing build,
       # so it's only necessary for `build*` or `bdist*` actions.
       setup_requires=require_list if is_build_action() else [],
-      install_requires=require_list,
+      install_requires=require_list.append("tensorflow-gpu==1.15.0"),
       test_requires=test_require_list,
       extras_require={
           'spark':  [
